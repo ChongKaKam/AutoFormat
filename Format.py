@@ -49,13 +49,13 @@ if __name__=="__main__":
     # open file and read line
     file = open("test.txt", "r")
     line = file.readline()
-    line = file.readline()
+    # line = file.readline()
     # line = file.readline()
     # line = file.readline()
     print("Row line:\n", line)
 
     # use FormatLine()
-    line = FormatLine_target(line)
+    line = FormatLine(line)
     print("--> FORMATTED LINE:\n", line)
 
     # close file 

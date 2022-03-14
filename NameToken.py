@@ -39,8 +39,6 @@ if __name__=="__main__":
     # open file and process
     file = open("test.txt","r")
     line = file.readline()
-    line = file.readline()
-    line = file.readline()
     print("ROW LINE:\n", line)
     line = Format.FormatLine(line)
 

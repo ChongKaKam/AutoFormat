@@ -24,12 +24,6 @@ def format_punctuation(words):
 
 #
 def Sentence_Resemble(NameList,line):
-    # line = Format.FormatLine(line)
-    # print("FORMATTED LINE:\n", line)
-    # NameList,line = NameToken.GetNameToken(line)
-    # print("Name List:\n", NameList)
-    # print("After token:\n",line)
-
     sentence = line.split('_')
     # print("SENTENCE:")
     # print(sentence)
@@ -67,8 +61,6 @@ if __name__=="__main__":
     import NameToken
 
     file = open("test.txt", "r")
-    line = file.readline()
-    line = file.readline()
     line = file.readline()
     file.close()
 

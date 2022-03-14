@@ -72,7 +72,7 @@ if __name__=="__main__":
             print('Current Process: [{0}/{1}]\n'.format(str(i+1),total_line))
             out_file.write(out_line+"\n")
             out_file.flush()
-            print("Done! Please check the output file in: \""+ path +"\"")
+        print("Done! Please check the output file in: \""+ path +"\"")
     elif file_type == 't':
         # transfer as target file
         for i in range(total_line):
@@ -81,7 +81,7 @@ if __name__=="__main__":
             print('Current Process: [{0}/{1}]\n'.format(str(i+1),total_line))
             out_file.write(out_line+"\n")
             out_file.flush()
-            print("Done! Please check the output file in: \""+ path +"\"")
+        print("Done! Please check the output file in: \""+ path +"\"")
     else:
         error_print()
 
