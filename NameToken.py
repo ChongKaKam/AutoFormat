@@ -10,18 +10,24 @@ def GetNameToken(line):
     # use pattern to match names
     # line = re.sub(r'[a-z]+:', name_upper, line, re.I)
     # print("UP:\n",line)
-    NameList = NamePattern.findall(line)
+    ## FirstNamePos = NamePattern.search(line).span()
+    rowNameList = NamePattern.findall(line)
+    ##NameIter = NamePattern.finditer(line)
+    ##for i in NameIter:
+    ##    print('>>>',i.group())
+    ##    NameList.append(i.group())
     # print('NAMELIST:',NameList)
     # line = re.sub(r' ?[a-z]+: ',set_split,line)
     # erase ":"
-    for i in range(len(NameList)):
-        NameList[i] = (NameList[i])[:-1]
+    ##for i in range(len(NameList)):
+    ##    NameList[i] = (NameList[i])[:-1]
 
     # remove duplicate names 
-    NameList = list(set(NameList))
-    for i in range(len(NameList)):
-        NameList[i] = NameList[i].capitalize()
-    NameList = list(set(NameList))
+    # NameList = list(set(rowNameList))
+    for i in range(len(rowNameList)):
+        rowNameList[i] = rowNameList[i].capitalize()
+    NameList = list(set(rowNameList))
+    NameList.sort(key=rowNameList.index)
     # print('------NAME-----:',NameList)
     # correct the format of names
     for i in NameList:
