@@ -15,16 +15,21 @@ def check_name( A, B, NameList):
 #
 def format_punctuation(words):
     if words == '': return words
-    if words[-1]==' ':
-        words = words[:-1]
+    #if words[-1]==' ':
+    #    words = words[:-1]
+    #while words[-1]==' ':
+    #    words = words[:-1]
+    words = re.sub('(\ )+',' ',words)
+    words = words[:-1]
+    if words == '': return words
     end = words[-1]
-    if (end!='?')and(end!='!')and(end!='.'):
+    if (end!='?')and(end!='!')and(end!='.')and(end!='>'):
         words = words+'.'
     return words
 
 #
 def Sentence_Resemble(NameList,line):
-    sentence = line.split('_')
+    sentence = line.split('##')
     # print("SENTENCE:")
     # print(sentence)
 
@@ -41,14 +46,14 @@ def Sentence_Resemble(NameList,line):
         else:
             temp = format_punctuation(sentence[i])
             Speakers[j].append(temp)
-    # print("\n-----\n")
+    # print("  -----  ")
     C_insert = ' '
     speakers_joined = []
     for i in range(len(Speakers)):
         temp = C_insert.join(Speakers[i])
         temp = NameList[i]+': ' + temp
         speakers_joined.append(temp)
-    #print("SPEAKERS_JOINED:\n",speakers_joined)
+    #print("SPEAKERS_JOINED:  ",speakers_joined)
     line_joined = C_insert.join(speakers_joined)
     #print("LINE_JOINED:",line_joined)
     return line_joined
@@ -71,4 +76,4 @@ if __name__=="__main__":
     # print(line)
     line_joined = Sentence_Resemble(NameList, line)
 
-    print('RESULT:\n',line_joined)
+    print('RESULT:\n'+line_joined)

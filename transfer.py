@@ -60,16 +60,16 @@ if __name__=="__main__":
 
     # open output file
     out_file = open(out_dir, 'w')
-    print(' Welcome '.center(20)+'\n')
-    print('the total lines are\n', total_line)
-    print('Start transferring...\n')
+    print(' Welcome '.center(20)+'  ')
+    print('the total lines are  ', total_line)
+    print('Start transferring...  ')
 
     if file_type == 's':
         # transfer as source file
         for i in range(total_line):
             line = lines[i]
             out_line = Transfer_Source(line)
-            print('Current Process: [{0}/{1}]\n'.format(str(i+1),total_line))
+            print('Current Process: [{0}/{1}]  '.format(str(i+1),total_line))
             out_file.write(out_line+"\n")
             out_file.flush()
         print("Done! Please check the output file in: \""+ path +"\"")
@@ -78,7 +78,7 @@ if __name__=="__main__":
         for i in range(total_line):
             line = lines[i]
             out_line = Transfer_Target(line)
-            print('Current Process: [{0}/{1}]\n'.format(str(i+1),total_line))
+            print('Current Process: [{0}/{1}]  '.format(str(i+1),total_line))
             out_file.write(out_line+"\n")
             out_file.flush()
         print("Done! Please check the output file in: \""+ path +"\"")

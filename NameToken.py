@@ -9,7 +9,7 @@ def GetNameToken(line):
 
     # use pattern to match names
     # line = re.sub(r'[a-z]+:', name_upper, line, re.I)
-    # print("UP:\n",line)
+    # print("UP:  ",line)
     ## FirstNamePos = NamePattern.search(line).span()
     rowNameList = NamePattern.findall(line)
     ##NameIter = NamePattern.finditer(line)
@@ -25,16 +25,16 @@ def GetNameToken(line):
     # remove duplicate names 
     # NameList = list(set(rowNameList))
     for i in range(len(rowNameList)):
-        rowNameList[i] = rowNameList[i].capitalize()
+        rowNameList[i] = rowNameList[i].capitalize()[:-1]
     NameList = list(set(rowNameList))
     NameList.sort(key=rowNameList.index)
     # print('------NAME-----:',NameList)
     # correct the format of names
     for i in NameList:
         line = line.replace(i.lower()+':', i+':')
-    #print("TEST:\n",line)
+    #print("TEST:  ",line)
     for i in range(len(NameList)):
-        line = line.replace(NameList[i]+": ","_"+NameList[i]+":"+"_")
+        line = line.replace(NameList[i]+": ","##"+NameList[i]+":"+"##")
     return NameList, line
 
 
@@ -45,14 +45,14 @@ if __name__=="__main__":
     # open file and process
     file = open("test.txt","r")
     line = file.readline()
-    print("ROW LINE:\n", line)
+    print("ROW LINE:  ", line)
     line = Format.FormatLine(line)
 
-    print("FORMAT LINE:\n", line)
+    print("FORMAT LINE:  ", line)
 
     NameList, line= GetNameToken(line)
-    print("NameList:\n",NameList)
-    print("AFTER GET TOKEN:\n",line)
+    print("NameList:  ",NameList)
+    print("AFTER GET TOKEN:  ",line)
 
     # show results
     print("Name List: ")
